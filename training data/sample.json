@@ -1,0 +1,112 @@
+[
+    {
+        "input":{
+            "problem":[
+                "No weld current measured despite Voltage delivery"
+            ],
+            "trouble code":[
+                "E221"
+            ],
+            "error message":[
+                "No current fault No readings in spite of requirement (program <no.>)"
+            ],
+            "symptom short":[
+                "weld current not detected during operation"
+            ],
+            "symptom detailed":[
+                "control unit delivers Voltage, but No weld current is registered.",
+                "Occurs during programmed weld cycle.",
+                "May be Intermittent or consistent depending on contact and setup."
+            ],
+            "observable signs":[
+                "No spark or weld formation",
+                "Possible loose or dirty electrodes",
+                "No current feedback on display",
+                "gun May remain open during Cycle"
+            ],
+            "Possible Root Causes":[
+                "Bad Electrode contact due to adhesive or contamination",
+                "Damaged cable or connector to current measuring coil",
+                "Worn-out power or current cables",
+                "poor part fit",
+                "Insufficient squeeze time (gun not fully closed)"
+            ],
+            "Most Probable Cause":[
+                "Electrode contact failure due to contamination or poor fit"
+            ]
+
+            
+        },
+        "expected_output":{
+            "Quick Initial Checks":[
+                "Inspect Electrode surfaces for dirt or adhesive",
+                "Check cable connections and plugs",
+                "Confirm gun closure and squeeze time settings",
+                "Visual inspection of current cables"
+            ],
+            "Troubleshoot Procedure":[
+                "1. Electrodes: Exchange or mill to restore contact",
+                "Cables & Connectors: Inspect and replace if damaged",
+                "Current Cables: Replace if worn",
+                "Part Fit: Verify alignment and contact",
+                "Squeeze Time: Adjust parameters to ensure full closure"
+            ]
+        }
+    },
+
+     {
+        "input":{
+            "problem":[
+                "Welding process interrupted due to Voltage tolerance breach"
+            ],
+            "trouble code":[
+                "E237"
+            ],
+            "error message":[
+                "Voltage tolerance exceeded when program <no.>"
+            ],
+            "symptom short":[
+                "Welding halts unexpectedly during operation"
+            ],
+            "symptom detailed":[
+                "Frequency: Intermittent, especially during short-circuit welds",
+                "Severity: Moderate to critical (causes line stop",
+                "Impact: Interrupts production, requires manual reset or inspection"
+
+            ],
+            "observable signs":[
+                "No visible arc or weld formation",
+                "Possible low Voltage readings at gun",
+                "No material present during weld attempt"
+            ],
+            "Possible Root Causes":[
+                "Mechanical: Electrode misalignment or wear",
+                "Electrical: Damaged measuring line, low Electrode Voltage",
+                "Software: Voltage tolerance Parameters set too narrow",
+                "Human Error: Welding attempted without material"
+
+            ],
+            "Most Probable Cause":[
+                "Voltage tolerance range too low or Damaged measuring line at Welding gun"
+            ]
+
+            
+        },
+        "expected_output":{
+            "Quick Initial Checks":[
+                "Verify power supply and Voltage stability",
+                "Inspect cables, plugs, and measuring line for damage",
+                "Confirm material presence during weld",
+                "attempt System reset and re-run with material"
+            ],
+            "Troubleshoot Procedure":[
+                "Check voltage tolerance settings in the program",  
+                "Inspect welding gun’s measuring line and connections", 
+                "Confirm material is present during weld cycle",
+                "Run diagnostics to verify sensor and actuator health", 
+                "Adjust parameters and test with material under normal conditions" 
+            ]
+        }
+    }
+
+]
