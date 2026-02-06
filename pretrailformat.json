@@ -1,0 +1,102 @@
+{
+  "id": "maint-000124",
+  "domain": "industrial_maintenance",
+  "task_type": "breakdown_diagnosis",
+  "difficulty": "intermediate",
+  "metadata": {
+    "machine_category": "CNC",
+    "machine_type": "Vertical Milling Machine",
+    "manufacturer": "Generic",
+    "model": "VM-500",
+    "control_system": "Fanuc-compatible",
+    "environment": {
+      "ambient_temperature_c": 28,
+      "humidity_percent": 65,
+      "shift": "day"
+    },
+    "operating_state": {
+      "runtime_minutes_before_failure": 10,
+      "load_condition": "high",
+      "speed_rpm": 8000
+    },
+    "failure_classification": {
+      "failure_mode": "overheating",
+      "failure_category": "thermal",
+      "severity": "medium",
+      "downtime_risk": "high"
+    },
+    "safety_level": "lockout_required",
+    "data_source": "field_report",
+    "confidence": 0.95
+  },
+  "input": {
+    "symptoms": [
+      "Spindle motor temperature rises rapidly",
+      "Machine auto-stops after 10 minutes",
+      "No error codes displayed"
+    ],
+    "observations": [
+      "Cooling fan running",
+      "No unusual noise",
+      "Lubrication level unknown"
+    ],
+    "error_codes": [],
+    "recent_changes": [
+      "Increased cutting depth",
+      "New workpiece material"
+    ],
+    "operator_notes": "Overheating occurs only during heavy cuts"
+  },
+  "expected_output": {
+    "problem_summary": "Spindle motor overheating during high-load operation",
+    "possible_causes": [
+      {
+        "cause": "Insufficient spindle lubrication",
+        "likelihood": "high"
+      },
+      {
+        "cause": "Excessive cutting load",
+        "likelihood": "high"
+      },
+      {
+        "cause": "Restricted cooling airflow",
+        "likelihood": "medium"
+      },
+      {
+        "cause": "Worn spindle bearings",
+        "likelihood": "low"
+      }
+    ],
+    "diagnostic_steps": [
+      "Verify spindle lubrication level and flow",
+      "Measure spindle motor current draw under load",
+      "Inspect cooling air intake and exhaust paths",
+      "Check bearing temperature using infrared thermometer"
+    ],
+    "corrective_actions": [
+      "Refill or repair spindle lubrication system",
+      "Reduce cutting depth or feed rate",
+      "Clean cooling vents and filters",
+      "Replace spindle bearings if overheating persists"
+    ],
+    "verification_steps": [
+      "Run spindle at rated load for 20 minutes",
+      "Confirm temperature remains within specification"
+    ],
+    "preventive_actions": [
+      "Schedule regular lubrication inspection",
+      "Review cutting parameters for new materials"
+    ],
+    "safety_notes": [
+      "Isolate machine power before mechanical inspection",
+      "Allow spindle to cool before servicing"
+    ],
+    "confidence_statement": "Diagnosis based on observed thermal behavior under load"
+  },
+  "style_guidelines": {
+    "tone": "professional",
+    "verbosity": "medium",
+    "formatting": "structured_lists",
+    "unit_system": "metric"
+  }
+}
