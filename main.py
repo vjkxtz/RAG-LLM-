@@ -82,7 +82,8 @@ def get_vector_collection() -> chromadb.Collection:
     """
     ollama_ef = OllamaEmbeddingFunction(
         url="http://localhost:11434/api/embeddings",
-        model_name="nomic-embed-text:latest",
+        model_name="llama3.1:latest",
+        timeout=1000,
     )
 
     chroma_client = chromadb.PersistentClient(path="./demo-rag-chroma")
@@ -92,6 +93,11 @@ def get_vector_collection() -> chromadb.Collection:
         metadata={"hnsw:space": "cosine"},
     )
 
+# def get_manual_name() -> chromadb.Collection:
+
+#     client = chromadb.get_collections("rag_app")
+#     print(client.get())
+#     return client.get()
 
 def add_to_vector_collection(all_splits: list[Document], file_name: str):
     """Adds document splits to a vector collection for semantic search.
@@ -213,6 +219,7 @@ def re_rank_cross_encoders(documents: list[str]) -> tuple[str, list[int]]:
 
 if __name__ == "__main__":
     # Document Upload Area
+    
     with st.sidebar:
         st.set_page_config(page_title="RAG Question Answer")
         uploaded_file = st.file_uploader(
@@ -222,6 +229,8 @@ if __name__ == "__main__":
         process = st.button(
             "⚡️ Process",
         )
+        #st.write(get_manual_name())
+
         if uploaded_file and process:
             normalize_uploaded_file_name = uploaded_file.name.translate(
                 str.maketrans({"-": "_", ".": "_", " ": "_"})
