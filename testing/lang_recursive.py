@@ -145,13 +145,19 @@ def index_chunks(client, chunks, batch_size=16):
 def retrieve(client, query, top_k=5):
     qvec = embed_text(query)
 
-    hits = client.query(
+    hits = client.query_points(
         collection_name=COLLECTION_NAME,
         query=qvec,
-        limit=top_k
+        limit=top_k,
+        with_payload=True
     )
+    print(f"Retrieved hits for query: '{hits}'")
 
-    return [hit.payload["text"] for hit in hits]
+    return [
+        point.payload["text"]
+        for point in hits.points
+        if point.payload and "text" in point.payload
+    ]
 
 
 def answer(query, context):
@@ -200,6 +206,7 @@ def main():
             break
 
         ctx = "\n\n".join(retrieve(qdrant, q))
+        print("\nContext:\n", ctx)
         print("\nAnswer:\n", answer(q, ctx))
 
 
