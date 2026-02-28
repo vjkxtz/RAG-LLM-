@@ -7,4 +7,5 @@ required model :
 nomic-text-embed
 llama 3.1 : latest
 
-trying deepseak - 20Gb model 
+data feed csv to json 
+json to embeding model 
